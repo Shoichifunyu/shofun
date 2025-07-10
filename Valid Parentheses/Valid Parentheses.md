@@ -67,6 +67,40 @@ class Solution(object):
 
 
 ### Step3
+
+#### 1回目
+```python
+class Solution:
+    def isValid(self, s: str) -> bool:
+        opcl = {"(" : ")", "{" : "}", "[" : "]" }
+
+        stack = []
+        for idx in s:
+            if idx in "({[":
+                stack.append(idx)
+            elif len(stack) == 0 or opcl.get(stack.pop()) != idx:
+                return False
+
+        return len(stack) == 0 
+```
+#### 2回目
+```python
+class Solution:
+    def isValid(self, s: str) -> bool:
+        opcl = {"(":")", "{":"}", "[":"]"}
+
+        stack = []
+
+        for idx in s:
+            if idx in "{[(":
+                stack.append(idx)
+            elif len(stack) == 0 or opcl.get(stack.pop()) != idx:
+                return False
+
+        return len(stack) == 0
+```
+
+#### 3回目
 ```python
 class Solution:
     def isValid(self, s: str) -> bool:
