@@ -63,7 +63,7 @@ class Solution(object):
         # If the stack is empty it means every opened parenthesis is being closed and we can return true, otherwise we return false...
         return len(stack) == 0
 ```
-* 一見、複雑に見えたが、実際は実にシンプルなつくりとなっていたことが分かり、この回答を採用して作り直すことにした
+* 一見、複雑に見えたが、実際は実にシンプルなつくりとなっていたことが分かり、この回答を採用して作り直すことにした(修正後実装は、[Step3の1回目](#1回目)を参照)
 
 
 ### Step3
@@ -116,4 +116,5 @@ class Solution:
 
         return len(stack) == 0
 ```
+#### 感想
 - 回答を参考に実装した。最初は理解に時間がかかるかと思ったが、思ったより習熟が早く進み、3回書き直しについても1回もミスすることなく終えることができた
