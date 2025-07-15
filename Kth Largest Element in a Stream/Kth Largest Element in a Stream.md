@@ -75,3 +75,69 @@ class KthLargest:
 
 ### STEP3
 - 3回連続でミスせずコーディングするまでコーディング
+#### 1回目
+```python
+import heapq
+
+class KthLargest:
+    def __init__(self, k: int, nums: List[int]):
+        self._k = k
+        self._heap_sorted_nums = nums
+        heapq.heapify(self._heap_sorted_nums)
+
+        while len(self._heap_sorted_nums) > self._k:
+            heapq.heappop(self._heap_sorted_nums)
+
+
+    def add(self, val: int) -> int:
+        heapq.heappush(self._heap_sorted_nums, val)
+        if len(self._heap_sorted_nums) > self._k:
+            heapq.heappop(self._heap_sorted_nums)
+        return self._heap_sorted_nums[0]
+```
+- 実装時間: 03:08
+#### 2回目
+```python
+import heapq
+
+class KthLargest:
+    def __init__(self, k: int, nums: List[int]):
+        self._k = k
+        self._heap_sorted_nums = nums
+        heapq.heapify(self._heap_sorted_nums)
+
+        while len(self._heap_sorted_nums) > self._k:
+            heapq.heappop(self._heap_sorted_nums)
+
+    def add(self, val: int) -> int:
+        heapq.heappush(self._heap_sorted_nums, val)
+
+        if len(self._heap_sorted_nums) > self._k:
+            heapq.heappop(self._heap_sorted_nums)
+        return self._heap_sorted_nums[0]
+```
+- 実装時間: 03:59
+
+#### 3回目
+```python
+import heapq
+
+class KthLargest:
+    def __init__(self, k: int, nums: List[int]):
+        self._k = k
+        self._heap_sorted_nums = nums
+
+        heapq.heapify(self._heap_sorted_nums)
+
+        while len(self._heap_sorted_nums) > self._k:
+            heapq.heappop(self._heap_sorted_nums)
+
+    def add(self, val: int) -> int:
+        heapq.heappush(self._heap_sorted_nums, val)
+
+        if len(self._heap_sorted_nums) > self._k:
+            heapq.heappop(self._heap_sorted_nums)
+            
+        return self._heap_sorted_nums[0]
+```
+- 実装時間: 04:30
