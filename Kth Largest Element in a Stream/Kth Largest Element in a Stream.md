@@ -58,17 +58,17 @@ import heapq
 class KthLargest:
     def __init__(self, k: int, nums: List[int]):
         self._k = k
-        self._heap_sorted_nums = nums
-        heapq.heapify(self._heap_sorted_nums)
+        self._heap_ordered_nums = nums
+        heapq.heapify(self._heap_ordered_nums)
 
-        while len(self._heap_sorted_nums) > self._k:
-            heapq.heappop(self._heap_sorted_nums)
+        while len(self._heap_ordered_nums) > self._k:
+            heapq.heappop(self._heap_ordered_nums)
 
     def add(self, val: int) -> int:
-        heapq.heappush(self._heap_sorted_nums, val)
+        heapq.heappush(self._heap_ordered_nums, val)
         if len(self._heap_sorted_nums) > self._k:
-            heapq.heappop(self._heap_sorted_nums)
-        return self._heap_sorted_nums[0]
+            heapq.heappop(self._heap_ordered_nums)
+        return self._heap_ordered_nums[0]
 ```
 
 - 一応、インスタンス変数には先頭にアンダーバーを付けておく
@@ -83,17 +83,17 @@ class KthLargest:
     def __init__(self, k: int, nums: List[int]):
         self._k = k
         self._heap_sorted_nums = nums
-        heapq.heapify(self._heap_sorted_nums)
+        heapq.heapify(self._heap_ordered_nums)
 
-        while len(self._heap_sorted_nums) > self._k:
-            heapq.heappop(self._heap_sorted_nums)
+        while len(self._heap_ordered_nums) > self._k:
+            heapq.heappop(self._heap_ordered_nums)
 
 
     def add(self, val: int) -> int:
         heapq.heappush(self._heap_sorted_nums, val)
-        if len(self._heap_sorted_nums) > self._k:
-            heapq.heappop(self._heap_sorted_nums)
-        return self._heap_sorted_nums[0]
+        if len(self._heap_ordered_nums) > self._k:
+            heapq.heappop(self._heap_ordered_nums)
+        return self._heap_ordered_nums[0]
 ```
 - 実装時間: 03:08
 #### 2回目
@@ -104,17 +104,17 @@ class KthLargest:
     def __init__(self, k: int, nums: List[int]):
         self._k = k
         self._heap_sorted_nums = nums
-        heapq.heapify(self._heap_sorted_nums)
+        heapq.heapify(self._heap_ordered_nums)
 
         while len(self._heap_sorted_nums) > self._k:
-            heapq.heappop(self._heap_sorted_nums)
+            heapq.heappop(self._heap_ordered_nums)
 
     def add(self, val: int) -> int:
-        heapq.heappush(self._heap_sorted_nums, val)
+        heapq.heappush(self._heap_ordered_nums, val)
 
-        if len(self._heap_sorted_nums) > self._k:
-            heapq.heappop(self._heap_sorted_nums)
-        return self._heap_sorted_nums[0]
+        if len(self._heap_ordered_nums) > self._k:
+            heapq.heappop(self._heap_ordered_nums)
+        return self._heap_ordered_nums[0]
 ```
 - 実装時間: 03:59
 
@@ -127,17 +127,17 @@ class KthLargest:
         self._k = k
         self._heap_sorted_nums = nums
 
-        heapq.heapify(self._heap_sorted_nums)
+        heapq.heapify(self._heap_ordered_nums)
 
         while len(self._heap_sorted_nums) > self._k:
-            heapq.heappop(self._heap_sorted_nums)
+            heapq.heappop(self._heap_ordered_nums)
 
     def add(self, val: int) -> int:
-        heapq.heappush(self._heap_sorted_nums, val)
+        heapq.heappush(self._heap_ordered_nums, val)
 
         if len(self._heap_sorted_nums) > self._k:
-            heapq.heappop(self._heap_sorted_nums)
+            heapq.heappop(self._heap_ordered_nums)
             
-        return self._heap_sorted_nums[0]
+        return self._heap_ordered_nums[0]
 ```
 - 実装時間: 04:30
