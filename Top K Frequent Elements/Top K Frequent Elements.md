@@ -14,7 +14,7 @@ class Solution:
         
         sorted_num_list = sorted(num_dict.items(), key=lambda x:x[0])
 
-        return [sorted_num[0] for sorted_num in sorted_num_list[0:k]]
+        return [sorted_num[0] for sorted_num in sorted_num_list[:k]]
 ```
 
 - 下記の通り、Wrong Answer
