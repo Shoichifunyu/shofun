@@ -6,7 +6,7 @@ from collections import defaultdict
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         nums_by_uniq = list(set(nums))
-        num_dict = defaultdict(lambda: 0)
+        num_dict = defaultdict(int)
         for uniq_num in nums_by_uniq:
             for num in nums:
                 if uniq_num == num:
@@ -53,7 +53,7 @@ from collections import defaultdict
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        num_dict = defaultdict(lambda: 0)
+        num_dict = defaultdict(int)
         for num in nums:
             num_dict[num] += 1
         
@@ -78,7 +78,7 @@ import heapq
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        nums_dict = defaultdict(lambda: 0)
+        nums_dict = defaultdict(int)
         for num in nums:
             nums_dict[num] += 1
 
@@ -100,7 +100,7 @@ import heapq
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        num_dict = defaultdict(lambda: 0)
+        num_dict = defaultdict(int)
         for num in nums:
             num_dict[num] += 1
 
@@ -125,7 +125,7 @@ import heapq
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        num_dict = defaultdict(lambda: 0)
+        num_dict = defaultdict(int)
         for num in nums:
             num_dict[num] += 1
 
