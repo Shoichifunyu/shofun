@@ -6,13 +6,13 @@ from collections import defaultdict
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
         nums_by_uniq = list(set(nums))
-        num_dict = defaultdict(int)
+        num_and_cnt = defaultdict(int)
         for uniq_num in nums_by_uniq:
             for num in nums:
                 if uniq_num == num:
-                    num_dict[num] += 1
+                    num_and_cnt[num] += 1
         
-        sorted_num_list = sorted(num_dict.items(), key=lambda x:x[0])
+        sorted_num_list = sorted(num_and_cnt.items(), key=lambda x:x[0])
 
         return [sorted_num[0] for sorted_num in sorted_num_list[:k]]
 ```
@@ -53,13 +53,13 @@ from collections import defaultdict
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        num_dict = defaultdict(int)
+        num_and_cnt = defaultdict(int)
         for num in nums:
-            num_dict[num] += 1
+            num_and_cnt[num] += 1
         
         top_k_frequent = []
 
-        for num, cnt in num_dict.items():
+        for num, cnt in num_and_cnt.items():
             heapq.heappush(top_k_frequent, (cnt, num))
 
         while len(top_k_frequent) > k:
@@ -100,13 +100,13 @@ import heapq
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        num_dict = defaultdict(int)
+        num_and_cnt = defaultdict(int)
         for num in nums:
-            num_dict[num] += 1
+            num_and_cnt[num] += 1
 
         top_k_freqent_list = []
 
-        for num, cnt in num_dict.items():
+        for num, cnt in num_and_cnt.items():
             heapq.heappush(top_k_freqent_list, (cnt, num))
 
         while len(top_k_freqent_list) > k:
@@ -125,13 +125,13 @@ import heapq
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
-        num_dict = defaultdict(int)
+        num_and_cnt = defaultdict(int)
         for num in nums:
-            num_dict[num] += 1
+            num_and_cnt[num] += 1
 
         top_k_freqent_list = []
 
-        for num, cnt in num_dict.items():
+        for num, cnt in num_and_cnt.items():
             heapq.heappush(top_k_freqent_list, (cnt, num))
 
         while len(top_k_freqent_list) > k:
