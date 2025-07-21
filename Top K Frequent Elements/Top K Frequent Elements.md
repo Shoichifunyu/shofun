@@ -67,7 +67,27 @@ class Solution:
         
         return [num for cnt, num in top_k_frequent]
 ```
+- (2025/7/21追記) レビューコメントから下記のようなソースコードでも良いのではないか、という意見をいただいた。
+```python
+import heapq
+from collections import defaultdict
 
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        num_and_count = defaultdict(int)
+        for num in nums:
+            num_and_count[num] += 1
+
+        top_k_freqent = []
+
+        for num, cnt in num_and_count.items():
+            heapq.heappush(top_k_freqent, (-cnt, num))
+
+        return [num[:k] for cnt, num in top_k_freqent]
+```
+
+
+```
 ### STEP3
 - 修正したコードで3回ミスすることがなくなるまで書く
 - 1回目
