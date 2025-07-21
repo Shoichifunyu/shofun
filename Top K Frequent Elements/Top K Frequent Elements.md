@@ -69,8 +69,9 @@ class Solution:
 ```
 - (2025/7/21追記) レビューコメントから下記のようなソースコードでも良いのではないか、という意見をいただいた。
 ```python
-import heapq
 from collections import defaultdict
+
+import heapq
 
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:
@@ -78,12 +79,12 @@ class Solution:
         for num in nums:
             num_and_count[num] += 1
 
-        top_k_freqent = []
+        top_k_freqent_list = []
 
         for num, cnt in num_and_count.items():
-            heapq.heappush(top_k_freqent, (-cnt, num))
+            heapq.heappush(top_k_freqent_list, (-cnt, num))
 
-        return [num[:k] for cnt, num in top_k_freqent]
+        return [heapq.heappop(top_k_freqent_list)[1] for i in range(k)]
 ```
 
 
