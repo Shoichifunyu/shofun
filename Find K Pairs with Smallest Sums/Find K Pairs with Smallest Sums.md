@@ -109,5 +109,93 @@ class Solution:
 
 ### STEP3
 - 間違えずに3回連続でコーディングできるか
+- 1回目(所要時間：約8分)
 ```python
+import heapq
+
+class Solution:
+    def kSmallestPairs(self, nums1: List[int], nums2: List[int], k: int) -> List[List[int]]:
+        k_smallset_pairs = [(nums1[0]+nums2[0], 0, 0)]
+        seen = set((0, 0))
+        output_list = []
+
+        def _needs_add(index1, index2):
+            if len(nums1) <= index1 or len(nums2) <= index2:
+                return False
+            if index1 == 0 or index2 == 0:
+                return True
+            return (index1-1, index2) in seen and (index1, index2-1) in seen
+
+        def _need_if_nesessary(index1, index2):
+            if _needs_add(index1, index2):
+                heapq.heappush(k_smallset_pairs, (nums1[index1]+nums2[index2], index1, index2))
+
+        while len(output_list) < k:
+            _, index1, index2 = heapq.heappop(k_smallset_pairs)
+            output_list.append([nums1[index1], nums2[index2]])
+            seen.add((index1, index2))
+            _need_if_nesessary(index1+1, index2)
+            _need_if_nesessary(index1, index2+1)
+
+        return output_list
+```
+- 2回目(所要時間：約7分)
+```python
+import heapq
+
+class Solution:
+    def kSmallestPairs(self, nums1: List[int], nums2: List[int], k: int) -> List[List[int]]:
+        k_smallest_pairs = [(nums1[0]+nums2[0], 0, 0)]
+        seen = set((0, 0))
+        output_list = []
+
+        def _needs_add(index1, index2):
+            if len(nums1) <= index1 or len(nums2) <= index2:
+                return False
+            if index1 == 0 or index2 == 0:
+                return True
+            return (index1-1, index2) in seen and (index1, index2-1) in seen
+
+        def _need_if_nesessary(index1, index2):
+            if _needs_add(index1, index2):
+                heapq.heappush(k_smallest_pairs, (nums1[index1]+nums2[index2], index1, index2))
+
+        while len(output_list) < k:
+            _, index1, index2 = heapq.heappop(k_smallest_pairs)
+            output_list.append([nums1[index1], nums2[index2]])
+            seen.add((index1, index2))
+            _need_if_nesessary(index1+1, index2)
+            _need_if_nesessary(index1, index2+1)
+
+        return output_list
+```
+- 3回目(所要時間：約9分)
+```python
+import heapq
+
+class Solution:
+    def kSmallestPairs(self, nums1: List[int], nums2: List[int], k: int) -> List[List[int]]:
+        k_smallest_list = [(nums1[0]+nums2[0], 0, 0)]
+        seen = set((0, 0))
+        output_list = []
+
+        def _needs_add(index1, index2):
+            if len(nums1) <= index1 or len(nums2) <= index2:
+                return False
+            if index1 == 0 or index2 == 0:
+                return True
+            return (index1-1, index2) in seen and (index1, index2-1) in seen
+
+        def _need_if_nesessary(index1, index2):
+            if _needs_add(index1, index2):
+                heapq.heappush(k_smallest_list, (nums1[index1]+nums2[index2], index1, index2))
+
+        while len(output_list) < k:
+            _, index1, index2 = heapq.heappop(k_smallest_list)
+            output_list.append([nums1[index1], nums2[index2]])
+            seen.add((index1, index2))
+            _need_if_nesessary(index1+1, index2)
+            _need_if_nesessary(index1, index2+1)
+
+        return output_list
 ```
