@@ -105,7 +105,7 @@ class Solution:
   - リストの第一要素として、比較対象値(num1とnum2の合計値)を入れることで、heapqでソートされることを狙う
     - 後続の処理でheapqから要素をpopし、結果出力用リストに格納。合わせて、出力済みindexセットにも追加(add)
   - `add_if_nessesary`で、対象としているnum1とnum2のindexの1つ前のindexの組み合わせがそれぞれ、出力済みindexセットに存在するかを確認、一方でも存在していなければ、まだそのindexが追加される余地があるということで、対象のindexに対応する値はheapqにpushしない
-    - ~~この処理は、前方から順繰りに実施していくので、`add_if_necessary(index1+1, index2)`と`add_if_nesessary(index1, index2+1)`でともにheapq.pushされる要素がないことはないはず~~
+    - ~~この処理は、前方から順繰りに実施していくので、`add_if_necessary(index1+1, index2)`と`add_if_necessary(index1, index2+1)`でともにheapq.pushされる要素がないことはないはず~~
       - `if len(nums1) <= index1 or len(nums2) <= index2`←のルートに入ればheapq.pushされない可能性があるか。その場合、ループ処理の先頭の`_, index1, index2 = heapq.heappop(candidates)`はどうなるか？
         - IndexError: index out of range になりそう、つまりlen(nums1)とlen(nums2)に比べて同じ(かそれ以上の)index番号になった時には、途中でエラーが発生する可能性がある、ということ？
         - Constraintsには`k <= nums1.length * nums2.length`と書かれている(`k <= nums1.length`かつ`k <= nums2.length`なら直感的にこの制約はIndexErrorを回避できると分かるが、それ以上にkは大きくなりうるのでこの実装ではIndexErrorを引き起こす懸念があるのではないか)
@@ -129,7 +129,7 @@ class Solution:
                 return True
             return (index1-1, index2) in seen and (index1, index2-1) in seen
 
-        def _need_if_nesessary(index1, index2):
+        def _add_if_necessary(index1, index2):
             if _needs_add(index1, index2):
                 heapq.heappush(k_smallset_pairs, (nums1[index1]+nums2[index2], index1, index2))
 
@@ -137,8 +137,8 @@ class Solution:
             _, index1, index2 = heapq.heappop(k_smallset_pairs)
             output_list.append([nums1[index1], nums2[index2]])
             seen.add((index1, index2))
-            _need_if_nesessary(index1+1, index2)
-            _need_if_nesessary(index1, index2+1)
+            _add_if_necessary(index1+1, index2)
+            _add_if_necessary(index1, index2+1)
 
         return output_list
 ```
@@ -159,7 +159,7 @@ class Solution:
                 return True
             return (index1-1, index2) in seen and (index1, index2-1) in seen
 
-        def _need_if_nesessary(index1, index2):
+        def _add_if_necessary(index1, index2):
             if _needs_add(index1, index2):
                 heapq.heappush(k_smallest_pairs, (nums1[index1]+nums2[index2], index1, index2))
 
@@ -167,8 +167,8 @@ class Solution:
             _, index1, index2 = heapq.heappop(k_smallest_pairs)
             output_list.append([nums1[index1], nums2[index2]])
             seen.add((index1, index2))
-            _need_if_nesessary(index1+1, index2)
-            _need_if_nesessary(index1, index2+1)
+            _add_if_necessary(index1+1, index2)
+            _add_if_necessary(index1, index2+1)
 
         return output_list
 ```
@@ -189,7 +189,7 @@ class Solution:
                 return True
             return (index1-1, index2) in seen and (index1, index2-1) in seen
 
-        def _need_if_nesessary(index1, index2):
+        def _add_if_necessary(index1, index2):
             if _needs_add(index1, index2):
                 heapq.heappush(k_smallest_list, (nums1[index1]+nums2[index2], index1, index2))
 
@@ -197,8 +197,8 @@ class Solution:
             _, index1, index2 = heapq.heappop(k_smallest_list)
             output_list.append([nums1[index1], nums2[index2]])
             seen.add((index1, index2))
-            _need_if_nesessary(index1+1, index2)
-            _need_if_nesessary(index1, index2+1)
+            _add_if_necessary(index1+1, index2)
+            _add_if_necessary(index1, index2+1)
 
         return output_list
 ```
