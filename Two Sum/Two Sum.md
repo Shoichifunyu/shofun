@@ -74,3 +74,48 @@ class Solution:
 - 含まれていなければ、num_to_indexに取得した要素のnumをkey、要素のindexをvalueとして保存
 - 以前に保存しておいた値とnumsの各要素numの足した結果がtargetになりうるかを検証している
 - 作りとしては非常にシンプル
+
+### STEP3
+- 1回目
+```python
+import heapq
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        num_to_index = {}
+        for index, num in enumerate(nums):
+            complement = target - num
+            if complement in num_to_index:
+                return [index, num_to_index[complement]]
+            num_to_index[num] = index
+```
+- 所要時間: 約2分
+
+- 2回目
+```python
+import heapq
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        num_to_index = {}
+        for index, num in enumerate(nums):
+            complement = target - num
+            if complement in num_to_index:
+                return [index, num_to_index[complement]]
+            num_to_index[num] = index
+```
+- 所要時間: 約2分
+- 3回目
+```
+import heapq
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        num_to_index = {}
+        for index, num in enumerate(nums):
+            complement = target - num
+            if complement in num_to_index:
+                return [index, num_to_index[complement]]
+            num_to_index[num] = index
+```
+- 所要時間: 約2分
