@@ -106,7 +106,7 @@ class Solution:
 ```
 - 所要時間: 約2分
 - 3回目
-```
+```python
 import heapq
 
 class Solution:
