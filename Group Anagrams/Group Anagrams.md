@@ -77,3 +77,35 @@ class Solution:
     - `緯度 35.686321 と、経度 139.782211 をカンマ , で区切って記述し、一つのタプルオブジェクトとして 変数 ningyocho に代入しています。`
       - https://www.python.jp/train/tuple/index.html#%E3%82%BF%E3%83%97%E3%83%AB%E3%81%AE%E6%9B%B8%E3%81%8D%E6%96%B9
     - 複数の要素を一つの内容として表現するのに適した型である
+### STEP3
+- 間違えずに3回連続で記述する
+- 1回目
+  - 所要時間: 約2分
+```python
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        sort_str_to_anagrams = defaultdict(list)
+        for word in strs:
+            sort_str_to_anagrams[tuple(sorted(word))].append(word)
+        return [sort_str_to_anagram for sort_str_to_anagram in sort_str_to_anagrams.values()]
+```
+- 2回目
+  - 約1分
+```python
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        sort_str_to_anagrams = defaultdict(list)
+        for word in strs:
+            sort_str_to_anagrams[tuple(sorted(word))].append(word)
+        return [sort_str_to_anagram for sort_str_to_anagram in sort_str_to_anagrams.values()]
+```
+- 3回目
+  - 約2分
+```python
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        sort_str_to_anagrams = defaultdict(list)
+        for word in strs:
+            sort_str_to_anagrams[tuple(sorted(word))].append(word)
+        return [sort_str_to_anagram for sort_str_to_anagram in sort_str_to_anagrams.values()]
+```
