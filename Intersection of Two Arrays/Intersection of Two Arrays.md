@@ -48,6 +48,13 @@ class Solution:
 - 時間計算量がO(mlogn)に抑えられる(STEP1だとO(2(m+n))となる)
 - 特にSTEP2の場合、要素数が片方だけ大きい場合に有効
 
+- レビューコメントによる変更
+```python
+class Solution:
+    def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
+
+```
+
 ### STEP3
 - コーディングミスせずに3回連続で記述
 - 1回目
