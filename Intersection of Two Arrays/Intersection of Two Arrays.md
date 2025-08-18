@@ -3,7 +3,7 @@
 ```python
 class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        nums_in_respect_lists = defaultdict(list)
+        nums_to_cluster = defaultdict(list)
         for num1 in nums1:
             nums_to_cluster[num1].append("nums1")
         for num2 in nums2:
