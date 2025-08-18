@@ -5,10 +5,10 @@ class Solution:
     def intersection(self, nums1: List[int], nums2: List[int]) -> List[int]:
         nums_in_respect_lists = defaultdict(list)
         for num1 in nums1:
-            nums_in_respect_lists[num1].append("nums1")
+            nums_to_cluster[num1].append("nums1")
         for num2 in nums2:
-            nums_in_respect_lists[num2].append("nums2")
-        return [num for num, category in nums_in_respect_lists.items() if "nums1" in category and "nums2" in category]
+            nums_to_cluster[num2].append("nums2")
+        return [num for num, category in nums_to_cluster.items() if "nums1" in category and "nums2" in category]
 ```
 
 ### STEP2
